@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon – Presence of Jesus Ministry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep: #0a2a6e;
+      --blue-mid: #1a4db5;
+      --blue-light: #3b82f6;
+      --blue-sky: #93c5fd;
+      --white: #ffffff;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Lato', sans-serif;
+      background: var(--white);
+      color: var(--blue-deep);
+      overflow-x: hidden;
+    }
+
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(160deg, #e8f1ff 0%, #ffffff 45%, #cfe4ff 100%);
+    }
+    .bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 80%, rgba(59,130,246,.13) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 20%, rgba(26,77,181,.1) 0%, transparent 70%);
+    }
+
+    .grid-lines {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(59,130,246,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .orb {
+      position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+      animation: drift 18s ease-in-out infinite alternate;
+      filter: blur(60px);
+    }
+    .orb1 { width: 400px; height: 400px; top: -120px; right: -80px;
+      background: rgba(59,130,246,.18); animation-duration: 20s; }
+    .orb2 { width: 300px; height: 300px; bottom: -80px; left: -60px;
+      background: rgba(26,77,181,.14); animation-duration: 25s; animation-delay: -8s; }
+    .orb3 { width: 200px; height: 200px; top: 40%; left: 60%;
+      background: rgba(147,197,253,.2); animation-duration: 15s; animation-delay: -4s; }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 20px) scale(1.08); }
+    }
+
+    .page {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+  margin-bottom: 28px;
+  animation: fadeDown .9s ease both;
+}
+
+.logo-wrap img {
+  width: 110px;       /* Adjust size as needed */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 20px rgba(26,77,181,.25));
+}
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,.1);
+      border: 1px solid rgba(59,130,246,.3);
+      border-radius: 100px;
+      padding: 6px 20px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--blue-mid);
+      margin-bottom: 28px;
+      animation: fadeDown .9s .1s ease both;
+    }
+    .badge span.dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blue-light);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+
+    h1.title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--blue-deep);
+      letter-spacing: .01em;
+      margin-bottom: 10px;
+      animation: fadeDown .9s .2s ease both;
+    }
+    h1.title .accent { color: var(--blue-light); }
+
+    .divider {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-sky));
+      border-radius: 4px;
+      margin: 22px auto;
+      animation: fadeDown .9s .3s ease both;
+    }
+
+    /* Coming Soon */
+    .coming-soon-wrap {
+      animation: fadeDown .9s .35s ease both;
+      margin-bottom: 32px;
+    }
+    .cs-sublabel {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--blue-sky); margin-bottom: 8px;
+    }
+    .cs-main {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-light) 60%, var(--blue-sky) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: .06em;
+    }
+
+    .subtitle {
+      font-size: clamp(.95rem, 2.5vw, 1.1rem);
+      font-weight: 300;
+      color: #3a5490;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      animation: fadeDown .9s .4s ease both;
+    }
+
+    /* Verse card */
+    .verse-card {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(59,130,246,.22);
+      border-radius: 22px;
+      padding: 34px 44px;
+      max-width: 500px;
+      width: 100%;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 50px rgba(26,77,181,.1), 0 2px 8px rgba(26,77,181,.06);
+      animation: fadeUp .9s .5s ease both;
+      position: relative; overflow: hidden;
+    }
+    .verse-card::before {
+      content: '\201C';
+      position: absolute; top: -12px; left: 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 7rem; color: rgba(59,130,246,.08);
+      line-height: 1; pointer-events: none;
+    }
+
+    .promise-label {
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .promise-label::before, .promise-label::after {
+      content: ''; flex: 1; max-width: 44px;
+      height: 1px; background: rgba(59,130,246,.3);
+    }
+
+    .verse-en {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.8vw, 1.18rem);
+      font-weight: 600;
+      color: var(--blue-deep);
+      line-height: 1.65;
+      margin-bottom: 6px;
+    }
+
+    .verse-line-divider {
+      display: flex; align-items: center; gap: 10px;
+      margin: 16px 0;
+    }
+    .verse-line-divider span {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,.25), transparent);
+    }
+    .verse-line-divider i {
+      font-style: normal; font-size: .75rem;
+      color: rgba(59,130,246,.4);
+    }
+
+    .verse-ta {
+      font-family: 'Noto Sans Tamil', sans-serif;
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      font-weight: 600;
+      color: var(--blue-mid);
+      line-height: 1.7;
+    }
+
+    .verse-ref {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--blue-sky);
+      margin-top: 18px;
+    }
+
+    /* Progress */
+    .progress-wrap {
+      width: 100%; max-width: 400px;
+      animation: fadeUp .9s .6s ease both;
+      margin-bottom: 44px;
+    }
+    .progress-header {
+      display: flex; justify-content: space-between;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #6685b0; margin-bottom: 9px;
+    }
+    .progress-track {
+      height: 6px; background: rgba(59,130,246,.13); border-radius: 10px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-sky));
+      border-radius: 10px; width: 0;
+      transition: width 2s cubic-bezier(.4,0,.2,1);
+    }
+
+  /* Address Section */
+    .address {
+      margin-bottom: 30px;
+      font-size: .85rem;
+      line-height: 1.8;
+      color: #5b77a6;
+      animation: fadeUp .9s .68s ease both;
+    }
+
+    .address .ministry-name {
+      font-weight: 700;
+      color: var(--blue-mid);
+      letter-spacing: .05em;
+    }
+
+    .address a {
+      color: var(--blue-mid);
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .address a:hover {
+      color: var(--blue-deep);
+      text-decoration: underline;
+    }
+
+    .map-link {
+      margin-top: 6px;
+    }
+
+    .whatsapp-btn {
+      margin-top: 12px;
+    }
+
+    .whatsapp-btn a {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: white !important;
+      font-size: .8rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(37,211,102,.3);
+      transition: .3s ease;
+    }
+
+    .whatsapp-btn a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,211,102,.5);
+    }
+
+    .address .ministry-name {
+      font-weight: 700;
+      color: var(--blue-mid);
+      letter-spacing: .05em;
+    }
+
+    .address .contact {
+      margin-top: 6px;
+      font-weight: 600;
+      color: var(--blue-deep);
+    }
+
+    /* Social */
+    .social {
+      display: flex; gap: 14px;
+      animation: fadeUp .9s .65s ease both;
+      margin-bottom: 40px;
+    }
+    .social a {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.85);
+      border: 1.5px solid rgba(59,130,246,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-mid); text-decoration: none;
+      transition: all .25s;
+      box-shadow: 0 2px 10px rgba(26,77,181,.08);
+    }
+    .social a:hover {
+      background: var(--blue-mid); color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(26,77,181,.25);
+    }
+
+    footer {
+      font-size: .72rem; color: #8aaad0;
+      letter-spacing: .05em;
+      animation: fadeUp .9s .7s ease both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      .verse-card { padding: 26px 20px; }
+    }
+    /* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: all .3s ease;
+  animation: whatsappPulse 2s infinite;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(37,211,102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+}
+  </style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="grid-lines"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<main class="page">
+
+  <!-- Logo -->
+<div class="logo-wrap">
+  <img src="poj-logo.png" alt="Presence of Jesus Ministry Logo" />
+</div>
+
+  <!-- Badge -->
+  <div class="badge">
+    <span class="dot"></span>
+    Website Under Construction
+  </div>
+
+  <!-- Title -->
+  <h1 class="title">
+    Presence of Jesus<br/><span class="accent">Ministry</span>
+  </h1>
+
+  <div class="divider"></div>
+
+  <!-- Coming Soon -->
+  <div class="coming-soon-wrap">
+    <p class="cs-sublabel">We'll be there soon</p>
+    <p class="cs-main">Coming Soon</p>
+  </div>
+
+  <!-- Subtitle -->
+  <p class="subtitle">
+    Our website is being crafted with prayer and purpose.<br/>
+    Stay connected — something beautiful is on the way.
+  </p>
+
+  <!-- Verse Card -->
+  <div class="verse-card">
+    <p class="promise-label">Promise Word · 2026</p>
+
+    <p class="verse-en">"With God all things are possible"</p>
+
+    <div class="verse-line-divider">
+      <span></span><i>✦</i><span></span>
+    </div>
+
+    <p class="verse-ta">"தேவனாலே எல்லாம் கூடும்"</p>
+
+    <p class="verse-ref">Matthew 19:26</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-header">
+      <span>Development Progress</span>
+      <span>65%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Social -->
+  <div class="social">
+    <a href="https://www.facebook.com/people/Presence-Of-Jesus-Ministries/61579661574409/" title="Facebook">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/presenceofjesus_ministry" title="Instagram">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/channel/UCwyS65D3OE5JgkhzRTj7Lhg" title="YouTube">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+        <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/>
+      </svg>
+    </a>
+    
+  </div>
+
+  <!-- Address -->
+  <div class="address">
+
+    <p class="ministry-name">Presence Of Jesus Ministries</p>
+
+    <p>Carmel Mount</p>
+    <p>Peikulam, Asirvathapuram (via)</p>
+    <p>Tuticorin - Dt, 628613</p>
+    <p>Tamil Nadu, India.</p>
+
+    <p class="contact">
+      📞 
+      <a href="tel:9486373603">9486373603</a> ,
+      <a href="tel:7373133190">7373133190</a>
+    </p>
+
+    <p class="map-link">
+      📍 
+      <a href="https://www.google.com/maps/search/?api=1&query=Presence+Of+Jesus+Ministries+Carmel+Mount+Peikulam+Tuticorin+628613"
+        target="_blank">
+        View on Google Maps
+      </a>
+    </p>
+
+    
+
+  </div>
+
+  <footer>
+    &copy; <span id="yr"></span> Presence of Jesus Ministry &nbsp;·&nbsp; All Rights Reserved
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  setTimeout(() => {
+    document.getElementById('progress-fill').style.width = '65%';
+  }, 600);
+</script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919486373603?text=Praise%20the%20Lord!%20I%20would%20like%20to%20connect%20with%20Presence%20Of%20Jesus%20Ministries."
+   class="floating-whatsapp"
+   target="_blank"
+   title="Chat with us on WhatsApp">
+   
+   <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+     <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.48 0 .11 5.37.11 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.29-1.64a11.9 11.9 0 0 0 5.76 1.47h.01c6.57 0 11.94-5.37 11.94-11.94 0-3.19-1.24-6.18-3.48-8.41zM12.06 21.7h-.01a9.77 9.77 0 0 1-4.98-1.36l-.36-.21-3.73.97.99-3.63-.23-.37a9.76 9.76 0 0 1-1.5-5.18c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.02 6.93 2.87a9.73 9.73 0 0 1 2.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.39-7.33c-.29-.15-1.72-.85-1.99-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.44-.87-.78-1.45-1.75-1.62-2.04-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.29-1.05 1.03-1.05 2.52s1.07 2.93 1.22 3.13c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.72-.7 1.96-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.2-.55-.35z"/>
+   </svg>
+</a>
+</body>
+</html>
